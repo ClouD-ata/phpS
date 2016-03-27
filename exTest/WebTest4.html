@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-latest.js"></script>
+		<script src="Swipe-master/swipe.js"></script>
+		<style>
+			
+			#Header{
+				background: none;
+			}
+			
+			#logo{
+				width: 100px;
+				float: left;
+				margin: 0;
+				padding: 0;
+			}
+			
+			/* util */
+			
+			#util {
+				position: relative; left: 60%;
+				margin-bottom: 70px;
+			}
+			
+			#util li{
+				display: inline;
+				list-style: none;
+			}
+			
+			/* login_f */
+			
+			#login_f{
+				border: black 1px solid;
+				border-radius: 1em;
+				height: 100px;
+				width: 230px;
+				position: absolute;
+				top: -500px;
+				background: black;
+				z-index: 10;
+				
+			}
+			
+			#login_f p{
+				margin: 10px;
+			}
+			
+			.login_btn{
+				position: absolute;
+				right: 10%;
+				top: 27%;
+			}
+			
+			.close_btn {
+				position: absolute;
+				right: 10%;
+			}
+			
+			
+			/* menu */
+			
+			#menu {
+				background: black;
+				z-index: 8;
+			}
+			
+			#menu ul {
+				list-style: none;
+
+			}
+			
+			#menu li{
+				display: inline;
+				padding: 0 0 50px 50px;
+			}
+			
+			#menu li a {
+				text-decoration: none;
+				color: aqua;
+				font-family: sans-serif;
+				font-weight: 1000;
+			}
+			
+			/* View */
+			.swipe{
+				overflow: hidden;
+				visibility: hidden;
+				position: relative;
+			}
+			
+			.swipe-wrap{
+				overflow:hidden;
+				position: relative;
+			}
+			
+			.swipe-wrap > li{
+				float: left;
+				width: 100%;
+				position: relative;
+			}
+			
+			#view_btn{
+				position: absolute;
+				bottom: 2px;
+				left: 0; 
+			}
+			
+			#view {position: relative; z-index: 7;}
+			#view ul{list-style: none; padding: 0; margin: 0;}
+			#view img{width: 100%;}
+			
+		</style>
+		
+	</head>
+	<body>
+		<header id="Header">
+			
+			<img src="Image3/logo.jpg" id="logo">
+			
+			<ul id="util">
+				<li><input type="button" value="login" id="login_f_btn">
+					<form action="#" method="post" id="login_f">
+						<p><input type="text" placeholder="ID" name="ID"></p>
+						<p><input type="password" placeholder="PW" name="PW"></p>
+						<p><input type="button" value="Login" class="login_btn"></p>
+						<p><input type="button" value="Close" class="close_btn"></p>
+					</form>
+				<li><input type="button" value="Join"></li>
+			</ul>
+			
+			<nav id="menu">
+				<ul>
+					<li><a href="#"> Home </a></li>
+					<li><a href="#"> IOS </a></li>
+					<li><a href="#"> Lecture </a></li>
+					<li><a href="#"> Commission </a></li>
+					<li><a href="#"> Communi </a></li>
+				</ul>
+			</nav>
+		</header>
+		
+		
+		<div id="view">
+			<div id="mySwipe" class="swipe">
+				<ul class=swipe-wrap>
+					<li><img src="Image3/view01.png" alt="view1"></li>
+					<li><img src="Image3/view02.png" alt="view2"></li>
+					<li><img src="Image3/view03.png" alt="view3"></li>
+					<li><img src="Image3/view04.png" alt="view4"></li>
+					<li><img src="Image3/view05.png" alt="view5"></li>
+				</ul>
+			</div>
+			<div id="view_btn">
+				<input type="button" value="prev" class="prevBtn">
+				<input type="button" value="next" class="nextBtn">
+			</div>
+		</div>
+		
+		<script>
+			$(function(){
+				
+				/* login_f */
+				$("#login_f_btn").click(function(){
+					$("#login_f").animate({"top":"35px"},"fast");
+					return false;
+				});
+				
+				$(".close_btn").click(function(){
+					$("#login_f").animate({"top":"-500px"},"fast");
+					return false;
+				});
+				
+				
+				
+				/* View Swipe */
+				window.mySwipe = $("#mySwipe").Swipe({
+					startSlide: 0,
+					auto: 3000,
+					continuous: true,
+					disableScroll: true,
+					stopPropagation: true,
+					callback: function(index, element){},
+					transitionEnd: function(index, element) {}
+				}).data("Swipe");
+				
+				$(".prevBtn").click(function(){
+					mySwipe.prev();
+				});
+				
+				$(".nextBtn").click(function(){
+					mySwipe.next();
+				});
+			});
+
+		
+		</script>
+		
+	</body>
+</html>
