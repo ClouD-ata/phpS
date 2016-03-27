@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<style>
+			
+			#test_f{
+				width: 200px;
+			}
+			#test_f ul {
+				list-style: none;
+			}
+			
+			#test_f ul li{
+				background: aqua;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<form id="test_f">
+			<fieldset>
+				<legend> Test </legend>
+				<ul>
+					<li><button class="btn1" data-panelid="panel1"> btn1 </button></li>
+					<li><button class="btn2" data-panelid="panel2"> btn2 </button></li>
+					<li><button class="btn3" data-panelid="panel3"> btn3 </button></li>
+					<li><button class="btn4" data-panelid="panel4"> btn4 </button></li>
+				</ul>
+			</fieldset>
+		</form>
+		<script>
+			$(function(){
+				
+				var content = "My New Awesome Content";
+				
+				$('.btn1').click(function(){
+					var panelId = $(this).attr('data-panelid);
+					$('#'+panelId).toggle();
+					$('#'+panelId+' .panel-body').html('');
+				});
+			});
+			
+		</script>
+	</body>
+</html>

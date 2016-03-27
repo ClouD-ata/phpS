@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="Swipe-master/swipe.js"></script>
+		<title> Cloud Web </title>
+		
+		<style>
+			
+			/* Top_menu */
+			
+			#Top_menu{
+				position: absolute;
+				right: 10%;
+			}
+			
+			#Top_menu li{
+				display: inline;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				border: solid 1px black;
+				font-family: sans-serif;
+			}
+			
+			#Top_menu li a{
+				color: black;
+				text-decoration: none;
+			}
+			
+			/* login form */
+			
+			#login_f{
+				border: solid 1px black;
+				width: 250px; height: 100px;
+				margin: 10px 0 0 0;
+				padding: 0;
+				position: absolute; 
+				top: -500px;
+				z-index: 15;
+			}
+			
+			#login_f p{
+				margin: 0;
+				padding: 0;
+			}
+			
+			#login_f .login_btn{
+				position: absolute;
+				right: 20%; top: 32%;
+			}
+			
+			#login_f .find_btn{
+				position: absolute;
+				left: 20%; top: 80%;
+			}
+			#login_f .join_btn{
+				position: absolute;
+				left: 5%; top: 80%;
+			}
+			#login_f .close_btn{
+				position: absolute;
+				right: 20%; top: 80%;
+			}
+			
+			/* menu */
+			
+			#nav {
+				list-style: none;
+				background-color: black;
+				height: 45px;
+				position: absolute;
+				top: 150px;
+				width: 100%;
+			}
+			
+			#nav li{
+				float: left;
+				position: relative;
+				margin: 12px 10px;
+				
+			}
+			
+			#nav li a{
+				text-decoration: none;
+				font-family: sans-serif;
+				font-weight: 800;
+				font-size: 1em;
+				color: aqua;
+				margin: 0 30px;
+				
+			}
+			#nav li:hover {
+				background: white;
+				border-radius: 0.3em;
+				
+			}
+			#nav li:hover a{
+				color: black;
+			}
+			
+			#nav li:hover ul{
+				opacity: 1;
+			}
+			#nav li:hover li a{
+				
+			}
+			#nav ul li:hover a{
+				color: black;
+			}
+			
+			#nav ul{
+				list-style: none;
+				position: absolute;
+				top: 33px;
+				left: 0px;
+				width: 140px;
+				background-color: gray;
+				padding: 0;
+				opacity: 0;
+				border-bottom-left-radius: 1.4em;
+				border-bottom-right-radius: 1.4em;
+				z-index: 14;
+				
+			}
+			
+			#nav ul li{
+				float: none;
+			}
+			
+			#nav ul li a{
+				color: white;
+				margin: 0;
+				padding-right: 50px;
+				
+				
+			}
+			
+			/* swipe */
+			.swipe{
+				position: relative;
+				visibility: hidden;
+				overflow: hidden;
+			}
+			
+			.swipe_wrap{
+				position: relative;
+				overflow: hidden;
+				
+			}
+			
+			.swipe_wrap > li{
+				float: left;
+				width: 100%;
+				position: relative;
+				
+			}
+			
+			#mySwipe{
+				position: absolute;
+				top: 210px;
+				width: 100%;
+				z-index: 12;
+			}
+			
+			#mySwipe ul{
+				list-style: none;
+				padding: 0;
+			}
+			
+			.touch_prev_btn{
+				position: absolute;
+				top: 110px;
+				left: 0%;
+			}
+			
+			.touch_next_btn{
+				position: absolute;
+				top: 110px;
+				right: 0%;
+			}
+			
+			
+		</style>
+		
+	</head>
+	<body>
+		<ul id="Top_menu">
+			<li class="login"> login 
+				<form action="#" id="login_f">
+					<legend> Login </legend>
+					<p><input type="text" placeholder="ID"></p>
+					<p><input type="password" placeholder="PW"></p>
+					<p class="login_btn"> Login </p>
+					<p class="join_btn"> Join </p>
+					<p class="find_btn"> find ID/PW </p>
+					<p class="close_btn"> close </p>
+				</form>
+			</li>
+					
+			<li><a href="#"> Join </a></li>
+			<li><a href="#"> Zoom </a></li>
+			<li><a href="#"> + </a></li>
+			<li><a href="#"> 100 </a></li>
+			<li><a href="#"> - </a></li>
+			<li><a href="#"> print </a></li>
+		</ul>
+		
+		<ul id="nav">
+			<li><a href="#"> Home </a></li>
+			<li class="iphone_btn"><a href="#"> Iphone </a>
+				<ul class="iphone">
+					<li><a href="#"> Cloud Farm </a></li>
+					<li><a href="#"> Cloud Recorder </a></li>
+					<li><a href="#"> Cloud Budget </a></li>
+					<li><a href="#"> Cloud Jump </a></li>
+				</ul>
+			</li>
+			<li><a href="#"> Web </a></li>
+			<li><a href="#"> Analysis </a></li>
+			<li><a href="#"> Communi </a>
+				<ul class="comuni">
+					<li><a href="#"> Question Board </a></li>
+					<li><a href="#"> Free Board </a></li>
+				</ul>
+			</li>
+		</ul>
+		
+		<div id="mySwipe" class="swipe">
+			<ul class=swipe_wrap>
+				<li><a href="#"><img src="image2/visual_img_1.jpg" alt=""></a></li>
+				<li><a href="#"><img src="image2/visual_img_2.jpg" alt=""></a></li>
+				<li><a href="#"><img src="image2/visual_img_3.jpg" alt=""></a></li>
+			</ul>
+			<p class="touch_prev_btn">
+				<a href="#"><img src="image2/visual_btn_left.png"></a>
+			</p>
+			<p class="touch_next_btn">
+				<a href="#"><img src="image2/visual_btn_right.png"></a>
+			</p>
+		</div>
+		
+		
+		<script>
+			
+			// login form
+			
+			$(function(){
+				$(".login").click(function(){
+					$("#login_f").animate({"top":"25px"},"fast");
+					return false;
+				});
+				
+				$(".close_btn").click(function(){
+					$("#login_f").animate({"top":"-500px"},"fast");
+					return false;
+				})
+				
+			/* swipe */
+			
+				window.mySwipe = $("#mySwipe").Swipe({
+					startSlide : 0,
+					auto : 3000,
+					continuous : true,
+					callback : function(index, element){}
+				}).data("Swipe");
+				
+				$(".touch_prev_btn a").click(function(){
+					mySwipe.prev();
+					return false;
+				});
+				
+				$(".touch_next_btn a").click(function(){
+					mySwipe.next();
+					return false;
+				});
+			
+			});
+			
+			
+		</script>
+	</body>
+</html>

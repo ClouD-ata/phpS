@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		
+		<style>
+			
+			
+			.login_f{
+				width: 250px;
+				position: absolute; top: -500px;
+				background-color: black;
+				border-radius: 0.3em;
+
+			}
+			
+			.login_f p{
+				color: white;
+				font-family: sans-serif;
+
+			}
+			
+			#util{
+				list-style: none;
+			}
+			
+			
+			#util li{
+				display: inline;
+				float: left;
+				margin: 0 10px;
+				
+			}
+			
+			.login_btn{
+				position: absolute; right: 20px; bottom: 60px;
+				
+				
+			}
+			
+			.close_btn{
+				position: absolute; right: 3px; bottom: -10px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul id="util">
+			<li id="login_wrap"><button> login </button>
+			<form class="login_f">
+				<fieldset>
+					<p>
+						<input type="text" id="user_id" placeholder="ID">
+					</p>
+					<p>
+						<input type="password" id="user_pw" placeholder="PW">
+					</p>
+					<p>
+						<label><input type="checkbox" id="remember"> remember </label>
+					</p>
+					<p class="login_btn">
+						<input type="submit" value="Login">
+					</p>
+					<p class="close_btn">
+						<button> close </button>
+					</p>
+				</fieldset>
+			</form>
+			</li>
+			<li><button> Join </button></li>
+			<li><button> Print </button></li>
+		</ul>
+		<script>
+			$("#login_wrap").click(function(){
+				$(".login_f").animate({"top":"60px"},"fast");
+				return false;
+			});
+			
+			$(".close_btn").click(function(){
+				$(".login_f").animate({"top":"-500px"},"fast");
+				return false;
+			});
+		</script>
+		
+	</body>
+</html>

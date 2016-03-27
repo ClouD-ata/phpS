@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		
+		<style>
+			.login_f{
+				width: 200px;
+				position: absolute; top: -500px;
+
+			}
+			
+			#util{
+				list-style: none;
+			}
+			
+			#util li{
+				display: inline;
+				float: left;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul id="util">
+			<li id="login_wrap"><button> login </button>
+			<form class="login_f">
+				<fieldset>
+					<legend> Login </legend>
+					<p>
+						<input type="text" id="user_id" placeholder="ID">
+					</p>
+					<p>
+						<input type="password" id="user_pw" placeholder="PW">
+					</p>
+					<p class="login_btn">
+						<button> login </button>
+					</p>
+					<p class="close_btn">
+						<button> close </button>
+					</p>
+				</fieldset>
+			</form>
+			</li>
+			<li><button> Join </button></li>
+			<li><button> Print </button></li>
+		</ul>
+		<script>
+			$("#login_wrap").click(function(){
+				$(".login_f").animate({"top":"60px"},"fast");
+				return false;
+			});
+			
+			$(".close_btn").click(function(){
+				$(".login_f").animate({"top":"-500px"},"fast");
+				return false;
+			});
+			
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="cookie-plugin/jquery.cookie.js"></script>
+		<script type="text/javascript" src="ui-plugin/jquery-ui.min.js"></script>
+		<style>
+			#pop_wrap{
+				display: none;
+			}
+		
+		
+		</style>
+	</head>
+	<body>
+		<p id="pop_wrap">
+			<img src="image2/popup.jpg" alt="popup" usemap="#pop">
+			<map name="pop" id="pop">
+				<area shape="rect" coords="255,332,290,345" href="#" alt="close"/>
+				<area shape="rect" coords="95,332,215,345" href="#" alt="don't see today"/>
+			</map> 
+		</p>
+		
+		
+		<script>
+			$(function(){
+				if($.cookie("pop") != "no") $("#pop_wrap").show();
+				
+				$("#pop_wrap").css("cursor","move").draggable();
+				
+				$("#pop_wrap area:eq(0)").click(function(){
+					$("#pop_wrap").fadeOut("fast");
+					return false;
+				});
+				
+				$("#pop_wrap area:eq(1)").click(function(){
+					
+					$.cookie("pop","no",{expires:1});
+					$("#pop_wrap").fadeOut("fast");
+					return false;
+				});
+			});
+		</script>
+	</body>
+</html>
+		

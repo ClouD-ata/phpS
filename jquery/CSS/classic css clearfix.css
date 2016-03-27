@@ -1,0 +1,7 @@
+/* 플로팅된 엘리먼트를 담는 컨테이너에 이 클래스를 적용해야함, 뒤에오는 어떤 컨텐츠도 플로트되지 않아 끌어내려지지 않고 명확해짐 */
+
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+.clearfix { display: inline-block; }
+
+html[xmlns] .clearfix { display: block; }
+* html .clearfix { height: 1%; }

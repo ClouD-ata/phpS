@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="bxSlider/jquery.bxslider.min.js"></script>
+		<style>
+			*{margin: 0;padding: 0;}
+			img{border: none 0;}
+			li{list-style: none;}
+			
+			#gallery{
+				width: 260px;
+				position: relative;
+				margin: 0 auto;
+			}
+			
+			#photo_wrap{
+				position: relative;
+				height: 195px;
+			}
+			
+			#photo_wrap li{
+				position: absolute;
+			}
+	
+		</style>
+	</head>
+	<body>
+		<div id="gallery">
+			<ul id="photo_wrap">
+				<li><a href="#"><img src="Image/017.png" alt="photo1" width="260"/></a></li>
+				<li><a href="#"><img src="Image/018.png" alt="photo2" width="260"/></a></li>
+				<li><a href="#"><img src="Image/019.png" alt="photo3" width="260"/></a></li>
+				<li><a href="#"><img src="Image/020.png" alt="photo4" width="260"/></a></li>
+				<li><a href="#"><img src="Image/021.png" alt="photo5" width="260"/></a></li>
+			</ul>
+			<ul id="sm_photo_wrap">
+				<li><a href="#"><img src="Image/017.png" alt="photo1"></a></li>
+				<li><a href="#"><img src="Image/018.png" alt="photo2"></a></li>
+				<li><a href="#"><img src="Image/019.png" alt="photo3"></a></li>
+				<li><a href="#"><img src="Image/020.png" alt="photo4"></a></li>
+				<li><a href="#"><img src="Image/021.png" alt="photo5"></a></li>
+			</ul>
+			<p><a href="#" id="prevBtn"><button> < </button></a></p>
+			<p><a href="#" id="nextBtn"><button> > </button></a></p>
+			
+		</div>
+			
+		<script>
+			$(function(){
+				var mySlider=$("#sm_photo_wrap").bxSlider({
+					mode:"horizontal",
+					speed:500,
+					pager:false,
+					moveSlides:1,
+					slideWidth:72,
+					minSlides:3,
+					maxSlides:3,
+					slideMargin:0,
+					auto:false,
+					autoHover:true,
+					controls:false
+					
+				});
+				
+				$("#prevBtn").click(function(){
+					mySlider.goToPrevSlide();
+					return false;
+				});
+				$("#nextBtn").click(function(){
+					mySlider.goToNextSlide();
+					return false;
+				});
+			
+				
+				var pw_li=$("#photo_wrap li");
+				
+				var(pw_li).filter(":first").addClass("on");
+				
+				$("#sm_photo_wrap a").click(function(){
+					var alt=$("img",this).attr("alt");
+					
+					$(pw_li).has($("img[alt="+alt+"]")).not(".on").css({
+						opacity:0,
+						"z-index":2
+					})
+					.stop().animate({opacity:1},400,function(){
+						
+						$(pw_li).filter(".on").removeClass("on").css("z-index","auto");
+						
+						$(this).addClass("on").css("z-index",1);
+					});
+				});
+			});
+		</script>
+		
+	</body>
+</html>

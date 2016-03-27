@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="Swipe-master/swipe.js"></script>
+		<style>
+			.swipe{
+				overflow: hidden;
+				visibility: hidden;
+				position: relative;
+			}
+			
+			.swipe-wrap{
+				overflow:hidden;
+				position: relative;
+			}
+			
+			.swipe-wrap > li{
+				float: left;
+				width: 100%;
+				position: relative;
+			}
+			
+			/* user code */
+			li{list-style: none;}
+			img{width: 100%,max-width:100%;}
+			#mySwipe {max-width: 500px; margin: 0 auto; position: absolute; top: 100px; left: 0px;}
+			.btn_wrap{text-align: senter;padding-top: 20px;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="mySwipe" class="swipe">
+			<ul class=swipe-wrap>
+				<li><a href="#"><img src="Image1/017.png"></a></li>
+				<li><a href="#"><img src="Image1/018.png"></a></li>
+				<li><a href="#"><img src="Image1/019.png"></a></li>
+				<li><a href="#"><img src="Image1/020.png"></a></li>
+				<li><a href="#"><img src="Image1/021.png"></a></li>
+			</ul>
+		</div>
+		<div class="btn_wrap">
+			<button class="prevBtn">prev</button>
+			<button class="nextBtn">next</button>
+		</div>
+		
+			
+		<script>
+			$(function(){
+				window.mySwipe = $("#mySwipe").Swipe({
+					startSlide: 0,
+					auto: 3000,
+					continuous: true,
+					disableScroll: true,
+					stopPropagation: true,
+					callback: function(index, element){},
+					transitionEnd: function(index, element) {}
+				}).data("Swipe");
+				
+				$(".prevBtn").click(function(){
+					mySwipe.prev();
+				});
+				
+				$(".nextBtn").click(function(){
+					mySwipe.next();
+				});
+			});
+			
+		</script>
+		
+	</body>
+</html>

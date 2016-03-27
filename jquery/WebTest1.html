@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<style>
+			/* r_top */
+			
+			#r_top {
+				list-style: none;
+				position: absolute;
+				right: 13%;
+				margin: 0;
+				padding: 0;
+				
+			}
+			
+			#r_top li {
+				display: inline;
+				float: left;
+				background: aqua;
+				border-radius: 0.5em;
+				margin: 0 2px;
+			}
+			
+			#r_top li a{
+				text-decoration: none;
+				color: black;
+				font-family: sans-serif;
+				padding: 0 15px;
+			}
+			
+			#login_f {
+				position: absolute;
+				top: -500px;
+				z-index: 3;
+				width: 230px;
+				margin: 10px 0 0 0;
+				background: aqua;
+			}
+			#login_f p{
+				font-family: sans-serif;
+				padding: 0;
+				margin: 0;
+			}
+			
+			.join_btn{
+				position: absolute;
+				left: 32%; bottom: 0.5%;
+			}
+			
+			.login_btn{
+				position: absolute;
+				right: 14%; top: 16%;
+				
+			}
+			
+			.close_btn{
+				position: absolute;
+				right: 14%; bottom: 0.5%;
+			}
+			/* sch_f */
+			
+			#sch_f{
+				position: absolute;
+				left: 26%; top: 14%;
+			}
+			
+			#sch_f p{
+				display: inline;
+				
+			}
+			
+			#sch_f input{
+				width: 300px;
+				border-radius: 0.3em;
+			}
+			
+			
+			/* menu style */
+			
+			#nav {
+				list-style: none;
+				background-color: black;
+				height: 45px;
+				position: absolute;
+				top: 100px;
+				z-index: 2;
+			}
+			
+			#nav li{
+				float: left;
+				position: relative;
+				margin: 12px 10px;
+				
+			}
+			
+			#nav li a{
+				text-decoration: none;
+				font-family: sans-serif;
+				font-weight: 800;
+				font-size: 1em;
+				color: white;
+				margin: 0 30px;
+				
+			}
+			#nav li:hover {
+				background: white;
+				border-radius: 0.3em;
+			}
+			
+			#nav li:hover a{
+				color: black;
+			}
+			
+			#nav li:hover ul{
+				opacity: 1;
+			}
+
+			#nav ul li:hover a{
+				color: black;
+			}
+			
+			#nav ul{
+				list-style: none;
+				position: absolute;
+				top: 33px;
+				left: 0px;
+				width: 140px;
+				background-color: gray;
+				padding: 0;
+				opacity: 0;
+				border-radius: 0 0 1em 1em;
+				
+			}
+			
+			#nav ul li{
+				float: none;
+			}
+			
+			#nav ul li a{
+				color: white;
+				margin: 0;
+				padding-right: 50px;
+				
+				
+			}
+			
+			/* mainVeiw */
+			.swipe{
+				overflow: hidden;
+				visibility: hidden;
+				position: relative;
+				list-style: none;
+			}
+			
+			.swipe-wrap{
+				overflow:hidden;
+				position: relative;
+			}
+			
+			.swipe-wrap > li{
+				float: left;
+				width: 100%;
+				position: relative;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		
+		<ul id="r_top">
+			<li id="login_btn"><a href="#"> login </a>
+				<form action="#" name="login_f" id="login_f">
+						<p>
+							<input type="text" id="user_id" placeholder="ID">
+						</p>
+						<p>
+							<input type="password" id="user_pw" placeholder="password">
+						</p>
+						<p>
+							<input type="checkbox" id="remember">
+							<label for="remember"> remember </label>
+						</p>
+						<p>
+							<button class="find_id_pw"> Find ID/PW </button> 
+						</p>
+						<p>
+							<button class="login_btn"> Login </button> 
+						</p>
+						<p>
+							<button class="join_btn"> Join </button> 
+						</p>
+						<p>
+							<button class="close_btn"> close </button>
+						</p>
+				</form>
+			</li>
+					
+			<li><a href="#"> Join </a></li>
+			<li><a href="#"> Zoom </a></li>
+			<li><a href="#"> Print </a></li>
+		</ul>
+		
+		<form action="#" id="sch_f">
+			<p><input type="text" id="keword" placeholder="keword"></p>
+			<p><button type="submit" id="sch_btn"> search </button></p>
+		</form>
+			
+		<ul id="nav">
+			<li><a href="#"> Home </a></li>
+			<li><a href="#"> Iphone </a>
+				<ul>
+					<li><a href="#"> Cloud Farm </a></li>
+					<li><a href="#"> Cloud Recorder </a></li>
+					<li><a href="#"> Cloud Budget </a></li>
+					<li><a href="#"> Cloud Jump </a></li>
+				</ul>
+			</li>
+			<li><a href="#"> Web </a></li>
+			<li><a href="#"> Analysis </a></li>
+			<li><a href="#"> Communication </a>
+				<ul>
+					<li><a href="#"> Notification </a></li>
+					<li><a href="#"> Question Board </a></li>
+					<li><a href="#"> Free Board </a></li>
+				</ul>
+			</li>
+		</ul>
+		<div id="mainView">
+			<div id="mySwipe" class="swipe">
+				<ul class=swipe_wrap>
+					<li><img src="Image/017.png"></li>
+					<li><img src="Image/018.png"></li>
+					<li><img src="Image/019.png"></li>
+					<li><img src="Image/020.png"></li>
+					<li><img src="Image/021.png"></li>
+				</ul>
+			</div>
+			<p class="prev_btn"><button> < </button></p>
+			<p class="next_btn"><button> > </button></p>
+		</div>
+			
+		
+		<script>
+			
+			$(function(){
+				$("#login_btn").click(function(){
+					$("#login_f").animate({"top":"20px"}, "fast");
+					return false;
+				});
+				
+				$(".close_btn").click(function(){
+					$("#login_f").animate({"top":"-500px"}, "fast");
+					return false;
+				});
+			});
+		</script>
+	</body>
+</html>

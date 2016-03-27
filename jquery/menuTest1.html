@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<style>
+			
+			#nav {
+				list-style: none;
+				background-color: black;
+				height: 45px;
+			}
+			
+			#nav li{
+				float: left;
+				position: relative;
+				margin: 12px 10px;
+				
+			}
+			
+			#nav li a{
+				text-decoration: none;
+				font-family: sans-serif;
+				font-weight: 800;
+				font-size: 1em;
+				color: aqua;
+				margin: 0 30px;
+				
+			}
+			#nav li:hover {
+				background: white;
+				border-radius: 0.3em;
+				
+			}
+			#nav li:hover a{
+				color: black;
+			}
+			
+			#nav li:hover ul{
+				opacity: 1;
+			}
+			#nav li:hover li a{
+				
+			}
+			#nav ul li:hover a{
+				color: black;
+			}
+			
+			#nav ul{
+				list-style: none;
+				position: absolute;
+				top: 33px;
+				left: 0px;
+				width: 140px;
+				background-color: gray;
+				padding: 0;
+				opacity: 0;
+				border-bottom-left-radius: 1.4em;
+				border-bottom-right-radius: 1.4em;
+				
+			}
+			
+			#nav ul li{
+				float: none;
+			}
+			
+			#nav ul li a{
+				color: white;
+				margin: 0;
+				padding-right: 50px;
+				
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul id="nav">
+			<li><a href="#"> Home </a></li>
+			<li class="iphone_btn"><a href="#"> Iphone </a>
+				<ul class="iphone">
+					<li><a href="#"> Cloud Farm </a></li>
+					<li><a href="#"> Cloud Recorder </a></li>
+					<li><a href="#"> Cloud Budget </a></li>
+					<li><a href="#"> Cloud Jump </a></li>
+				</ul>
+			</li>
+			<li><a href="#"> Web </a></li>
+			<li><a href="#"> Analysis </a></li>
+			<li><a href="#"> Communication </a>
+				<ul class="comuni">
+					<li><a href="#"> Question Board </a></li>
+					<li><a href="#"> Free Board </a></li>
+				</ul>
+			</li>
+		</ul>
+		<script>
+			
+			
+		</script>
+	</body>
+</html>

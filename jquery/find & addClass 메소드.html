@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		
+		<style>
+		
+		.special{
+			color: blue;
+		}
+		
+		</style>
+	</head>
+	
+	<body>
+		<ul class="list">
+			<li>one</li>
+			<li class="special">two</li>
+			<li>three</li>
+			<li>
+				<ul class="sublist">
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<script>
+			
+			$(function(){
+				
+				$(".list").click(function(){
+					$(this).find("li").addClass("special"); 
+				});
+			});
+			
+			/*  찾아서 li 자체를 없앰
+				$(".list").click(function(){
+					$(this).find(".special").remove(); 
+				});
+			
+			참고로 .is & .not 메소드도 있음
+			*/	
+			
+		</script>	
+	</body>
+</html>

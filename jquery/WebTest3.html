@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="Swipe-master/swipe.js"></script>
+		<title> Cloud Web </title>
+		
+		<style>
+			
+			/* logo */
+			#logo{
+				width: 100px;
+			}
+			
+			
+			/* navigation */
+			#nav{
+				list-style: none;
+				background: #e8e5e5;
+				height: 40px;
+				position: absolute;
+				top: 100px;
+				width: 100%;
+			}
+			
+			#nav li{
+				float: left;
+				position: relative;
+				text-align: center;
+			}
+			
+			#nav li a{
+				color: black;
+				font-family: sans-serif;
+				text-decoration: none;
+				
+			}
+			
+			#nav li:hover {
+				background: white;
+				border-radius: 0 0 1em 1em;
+				
+			}
+			
+			#nav li:hover ul{
+				opacity: 1;
+			}
+			
+			#nav ul{
+				margin: 0;
+				padding: 0px;
+				background: #e8e5e5;
+				border-radius: 0 0 1em 1em;
+				border: 1px solid black;
+				position: relative;
+				top: 8px;
+				opacity: 0;
+			}
+			
+			#nav ul li{
+				list-style: none;
+				float: none;
+			}
+			
+			#nav ul li a{
+				padding: 0 30px;
+			}
+			
+			/* mainView */
+			
+			.swipe{
+				visibility: hidden;
+				position: relative;
+				overflow: none;
+				
+			}
+			
+			.swipe_wrap{
+				overflow: hidden;
+				position: relative;
+				
+			}
+			
+			.swipe_wrap > li{
+				float: left;
+				width: 100%;
+				position: relative;
+				
+			}
+			
+			li{list-style: none;}
+			img{width: 100%,max-width:100%;}
+			
+			#mySwipe{
+				position: absolute;
+				top: 140px;
+				margin: 0;
+				padding: 0;
+			}
+			
+			#mySwipe li{
+				padding: 0;
+				margin: 0;
+			}
+			
+		
+		</style>
+	</head>
+	<body>
+		
+		<header>
+			<img src="Image3/logo.jpg" id="logo">
+			<ul id="nav">
+				<li><a href="#"> Home </a></li>
+				<li><a href="#"> Iphone </a>
+					<ul>
+						<li><a href="#"> Cloud Farm </a></li>
+						<li><a href="#"> Cloud Record </a></li>
+						<li><a href="#"> Cloud Budget </a></li>
+						<li><a href="#"> Cloud Jump </a></li>
+					</ul>
+				<li><a href="#"> Web </a></li>
+				<li><a href="#"> Analysis </a></li>
+				<li><a href="#"> Communi </a>
+					<ul>
+						<li><a href="#"> Question </a></li>
+						<li><a href="#"> Free Board </a></li>
+					</ul>
+				</li>
+			</ul>
+		</header>
+		<section>
+			<div id="mySwipe" class="swipe">
+				<ul class=swipe_wrap>
+					<li><a href="#"><img src="Image3/view01.png"></a></li>
+					<li><a href="#"><img src="Image3/view02.png"></a></li>
+					<li><a href="#"><img src="Image3/view03.png"></a></li>
+					<li><a href="#"><img src="Image3/view04.png"></a></li>
+					<li><a href="#"><img src="Image3/view05.png"></a></li>
+				</ul>
+			</div>
+				
+		
+		<script>
+			$(function(){
+				window.mySwipe = $("#mySwipe").Swipe({
+					startSlide: 0,
+					auto: 3000,
+					continuous: true,
+					disableScroll: true,
+					stopPropagation: true,
+					callback: function(index, element){},
+					transitionEnd: function(index, element) {}
+				}).data("Swipe");
+				
+				$(".prevBtn").click(function(){
+					mySwipe.prev();
+				});
+				
+				$(".nextBtn").click(function(){
+					mySwipe.next();
+				});
+			});
+		</script>
+	</body>
+</html>

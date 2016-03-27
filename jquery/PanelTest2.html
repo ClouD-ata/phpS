@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<style>
+			
+			.tab-panels {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.tab-panels .tabs{
+				list-style: none;
+				background: black;
+				margin: 0;
+				padding: 0;			
+			}
+			
+			.tab-panels .tabs li{
+				display: inline-block;
+				padding: 0;
+				margin: 0;
+			}
+			
+			.tab-panels .panel {
+				background: gray;
+				border-radius: 0 0 1em 1em;
+				display: none;
+				padding: 10px;
+			}
+			
+			.tab-panels .panel.active {
+				display: block;
+			}
+		
+		</style>
+	</head>
+	<body>
+		<div class="tab-panels">
+			<ul class="tabs">
+				<li rel="panel1"><img src="image2/tab_btn_1_out.gif"></li>
+				<li rel="panel2"><img src="image2/tab_btn_2_out.gif"></li>
+				<li rel="panel3"><img src="image2/tab_btn_3_out.gif"></li>
+			</ul>
+			
+			<div id="panel1" class="panel active">
+				content1 <br>
+				content1 <br>
+				content1 <br>
+				content1 <br>
+				content1 <br>
+			</div>
+			
+			<div id="panel2" class="panel">
+				content2 <br>
+				content2 <br>
+				content2 <br>
+				content2 <br>
+				content2 <br>
+			</div>
+			
+			<div id="panel3" class="panel">
+				content3 <br>
+				content3 <br>
+				content3 <br>
+				content3 <br>
+				content3 <br>
+			</div>
+		</div>
+			
+		<script>
+			
+			$(function(){
+				$(".tab-panels .tabs li ").click(function(){
+					$(".tab-panels tab li.active").removeClass("active");
+					$(this).addClass("active");
+					
+					var panelToShow = $(this).attr("rel");
+					
+					$(".tab-panels .panel.active").fadeOut(300,showNextPanel);
+					
+					function showNextPanel(){
+						$(this).removeClass("active");
+						
+						$("#"+panelToShow).fadeIn(300,function(){
+							$(this).addClass("active");
+						});
+					}
+				});
+			});
+			
+		</script>
+	</body>
+</html>
+		
